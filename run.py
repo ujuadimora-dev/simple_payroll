@@ -70,3 +70,50 @@ data_details= employee_data()
 
 update_employee_record(data_details)
 
+def cal_over_time():
+    """
+    this is to calcualte the over time per week
+    """
+    print("This is to calculate the actual Salary of the Employee per week. \n")
+    
+    global name
+    name =  input('enter  employee Name \n ')
+
+    # Assuming that the regular work hours and maximum hours per day are:.
+    employee_regular_hours = 40
+    max_hours_per_day = 8
+
+    # Calculate the total hours per week worked by the employee
+
+    print(f"work hours for {name}  \n")
+    print("Example: 5,2,8,7,5\n")
+    data_hr = input(f"Enter worked hours  for a week  for {name}: \n")
+
+    hours_worked = data_hr.split(",")
+    print(hours_worked)
+
+    #numbers = [1, 2, 3, 4, 5,]
+
+    # Initialize a variable to hold the sum
+    sum = 0
+
+    # Iterate over the 5 elements of the array and add them to the sum
+    for i in range(5):
+        sum += int(hours_worked[i])
+
+    # Print the sum
+    print("The sum of the hours for 5days(a week)  is:", sum)
+    total_hours = sum
+
+    # Calculate the overtime or undertime hours
+    global over_time
+    over_time =  total_hours -  employee_regular_hours
+
+    
+    # Print the results of the overtime or undertime  hours worked for a week.
+    print("Total hours worked for week:", total_hours)
+    print("Overtime/ undertime hours for a week :", over_time)
+    #print("Overtime pay:", overtime_pay)
+
+cal_over_time()
+#cal_net_pay()
