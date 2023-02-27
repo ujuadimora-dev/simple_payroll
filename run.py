@@ -63,51 +63,44 @@ def update_employee_record(data):
 
     employee_worksheet = SHEET.worksheet("employees")
     
-    #for row in row:
     employee_worksheet.append_row(data_details)
-    #print (employee_worksheet)
+
     print("Employee Records  update sucessfull \n")
 
 data_details= employee_data()
 
 update_employee_record(data_details)
 
-def cal_over_time():
-     print("run Program section for cal Salary...")
-     
-while True:
-    answer = input("Do you want to continue with  the program? (Yes/No): ")
-    if answer.lower() == "yes":
-         cal_over_time()
-        
 
-    elif answer.lower() == "no":
-        break
-    else:
-        print("Invalid input, please answer Yes or No.")
+
 
     
 
-#def cal_over_time():
+def cal_over_time():
     """
     this is to calcualte the over time per week
     """
-
-    # Define the regular work hours and maximum hours per day
-    global name
-    name =  input('enter  employee Name \n ')
+    # assume the regular work hours and maximum hours per day
+    
     employee_regular_hours = 40
     max_hours_per_day = 8
 
+
+   # # Define the regular work hours and maximum hours per day
+    global name
+    name =  input('enter  employee Name \n ')
+    #employee_regular_hours = 40
+    #max_hours_per_day = 8
+
     # Calculate the total hours per week worked by the employee
-    print(f"work hours for {name}  \n")
-    print("Example: 6,5,0,6,5\n")
-    data_str = input(f"Enter worked hours for {name}: \n")
+    
+    print(f"one week worked hours for {name}  \n")
+    print("(Example: 6,5,0,6,5\n)")
+    data_str = input(f"Enter worked hours  per week for {name}: \n")
 
     hours_worked = data_str.split(",")
     print(hours_worked)
 
-    
     # Initialize a variable to hold the sum
     sum = 0
 
@@ -116,23 +109,19 @@ while True:
         sum += int(hours_worked[i])
 
     # Print the sum
-    print("The sum of the 5 working days(a week)  is:", sum)
-
-
+    print("The sum of hours worked for 5 working days(a week):", sum)
     total_hours = sum
-
     # Calculate the overtime hours
-    global overtime
-    overtime =  total_hours -  employee_regular_hours
+    global over_time
+    over_time =  total_hours -  employee_regular_hours
 
-    
     # Print the results of the overtime/undertime hours worked per week
     print("Total hours worked:", total_hours)
-    print("Overtime hours:", overtime)
+    print("Overtime hours:", over_time)
     #print("Overtime pay:", overtime_pay)
 
-#cal_over_time()
-cal_net_pay()
+cal_over_time()
+
 
 def cal_net_pay():
     basic_salary = float(input(f"enter basic Salary for {name} \n"))
@@ -141,12 +130,11 @@ def cal_net_pay():
     social_maintance_fees = 0.03 * basic_salary
     total_deduction = float(health_insurance + social_maintance_fees)
 
-    net_pay = int((basic_salary + overtime) - total_deduction)
+    net_pay = int((basic_salary + over_time) - total_deduction)
 
     print(net_pay)
 
-
-#cal_net_pay()
+cal_net_pay()
 
 
 
@@ -154,5 +142,7 @@ def cal_net_pay():
 
 #update_employee_record(data_details)
 
+
+    
 
     
