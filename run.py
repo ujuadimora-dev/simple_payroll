@@ -27,7 +27,7 @@ def employee_data():
     """
     Get the employee details vie the Terminal
     """
-    print("Please enter Employee Details to update the Record \n")
+    print("Please enter Employee Details to update the record \n")
 
     id =  input('Enter the ID number of Employee  \n ')
 
@@ -51,5 +51,22 @@ def employee_data():
 
     #print(data_details)
 
-employee_data()
+#employee_data()
+
+def update_employee_record(data):
+    """
+    update/ add  the emplyee records to the  worksheet
+    """
+    print("updating  employee record... \n")
+
+    employee_worksheet = SHEET.worksheet("employees")
+    
+    #for row in row:
+    employee_worksheet.append_row(data_details)
+    #print (employee_worksheet)
+    print("Employee Records  update sucessfull \n")
+
+data_details= employee_data()
+
+update_employee_record(data_details)
 
