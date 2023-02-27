@@ -1,6 +1,7 @@
 import gspread
 from google.oauth2.service_account import Credentials
 import pandas as pd
+import sys
 
 import json
 import csv
@@ -72,19 +73,22 @@ data_details= employee_data()
 update_employee_record(data_details)
 
 def cal_over_time():
-     print("end the the program...")
+     print("run Program section for cal Salary...")
+     
 while True:
     answer = input("Do you want to continue with  the program? (Yes/No): ")
-    if answer.lower() == "no":
+    if answer.lower() == "yes":
          cal_over_time()
-    elif answer.lower() == "yes":
+        
+
+    elif answer.lower() == "no":
         break
     else:
         print("Invalid input, please answer Yes or No.")
 
     
 
-def cal_over_time():
+#def cal_over_time():
     """
     this is to calcualte the over time per week
     """
@@ -127,8 +131,8 @@ def cal_over_time():
     print("Overtime hours:", overtime)
     #print("Overtime pay:", overtime_pay)
 
-cal_over_time()
-#cal_net_pay()
+#cal_over_time()
+cal_net_pay()
 
 def cal_net_pay():
     basic_salary = float(input(f"enter basic Salary for {name} \n"))
@@ -142,7 +146,7 @@ def cal_net_pay():
     print(net_pay)
 
 
-cal_net_pay()
+#cal_net_pay()
 
 
 
