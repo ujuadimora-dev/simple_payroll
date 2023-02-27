@@ -1,6 +1,9 @@
 import gspread
 from google.oauth2.service_account import Credentials
+import pandas as pd
+
 import json
+import csv
 
 # Define the scope of the Google Sheets API access
 SCOPE = [
@@ -20,30 +23,33 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
  #Open the spreadsheet
 SHEET = GSPREAD_CLIENT.open("simple_payrolls")
 
-
-
-
-
-def get_employee_data():
+def employee_data():
     """
-    Get or input user details.
-    We run a for loop to collect as many as possible data of emplyees 
-    via the terminal, 
+    Get the employee details vie the Terminal
     """
+    print("Please enter Employee Details to update the Record \n")
 
-    employees = []
-    for i in range(1):
-        print(f"Enter details for Employee {i+1}: \n")
-        employeeid = input("ID: \n")
-        name = input("Name:  \n")
-        age = int(input("Age:  \n"))
-        department = input("Dept:  \n")
-        salary = float(input("Salary:  \n"))
-        employee = {'Name': name, 'Age': age, 'Salary': salary}
-        employees.append(employee)
-    print(employee) 
+    id =  input('Enter the ID number of Employee  \n ')
 
-get_employee_data()  
+    name =  input('Enter the name of  Employee  \n ')
 
+    age = int(input('Enter  Employee Age \n '))
 
+    department =  input('Enter  the  Employee Department \n ')
+
+    salary = float(input('Enter  employee  Basic Salary(gross income) \n'))
+
+    data_details = [id, name, age, department, salary]
+
+    print(data_details)
+
+    #data_str = input("enter employee detail here  \n")
+    #print(f"the data provided is {data_str}")
+
+    #empl_data =  data_details.split(",")
+    #print(empl_data)
+
+    #print(data_details)
+
+employee_data()
 
