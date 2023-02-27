@@ -72,8 +72,6 @@ data_details= employee_data()
 update_employee_record(data_details)
 
 
-
-
     
 
 def cal_over_time():
@@ -120,7 +118,7 @@ def cal_over_time():
     print("Overtime hours:", over_time)
     #print("Overtime pay:", overtime_pay)
 
-cal_over_time()
+#cal_over_time()
 
 
 def cal_net_pay():
@@ -134,7 +132,22 @@ def cal_net_pay():
 
     print(net_pay)
 
-cal_net_pay()
+#cal_net_pay()
+
+
+while True:
+    answer = input("Do you want to continue with the program? (Yes/No): ")
+    
+    if answer.lower() == "yes":
+        # Call cal_over_time() and netpay() functions
+        cal_over_time()
+        cal_net_pay()
+    elif answer.lower() == "no":
+        # Exit the program
+        exit()
+    else:
+        # If the user enters an invalid answer, prompt them again
+        print("Invalid input. Please enter 'Yes' or 'No'.")
 
 
 
