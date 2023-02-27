@@ -24,10 +24,11 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open("simple_payrolls")
 
 def employee_data():
+    global name
     """
     Get the employee details vie the Terminal
     """
-    print("Please enter Employee Details to update the record \n")
+    print("Please enter Employee Details to update the Employees record \n")
 
     id =  input('Enter the ID number of Employee  \n ')
 
@@ -86,7 +87,7 @@ def cal_over_time():
     # Calculate the total hours per week worked by the employee
 
     print(f"work hours for {name}  \n")
-    print("Example: 5,2,8,7,5\n")
+    print("(Example: 5,2,8,7,5\n)")
     data_hr = input(f"Enter worked hours  for a week  for {name}: \n")
 
     hours_worked = data_hr.split(",")
@@ -117,3 +118,27 @@ def cal_over_time():
 
 cal_over_time()
 #cal_net_pay()
+
+def cal_net_pay():
+    basic_salary = float(input(f"To get actual salary(net Pay)enter basic Salary for {name} \n"))
+
+    # assuming that hea
+
+    health_insurance = 0.05 * basic_salary
+    social_maintance_fees = 0.03 * basic_salary
+    total_deduction = float(health_insurance + social_maintance_fees)
+
+    net_pay = int((basic_salary + over_time) - total_deduction)
+
+    print(f"The netpay for {name} : ")
+
+    print(net_pay)
+
+
+cal_net_pay()
+
+
+
+#data_details= employee_data()
+
+#update_employee_record(data_details)
