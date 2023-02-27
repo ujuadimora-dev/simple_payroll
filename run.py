@@ -29,6 +29,8 @@ def employee_data():
     """
     Get the employee details vie the Terminal
     """
+    answer = input("Do you want to enter employee data? (yes/no/end): ")
+
     print("Please enter Employee Details to update the Employees record \n")
 
     id =  input('Enter the ID number of Employee  \n ')
@@ -45,14 +47,7 @@ def employee_data():
 
     print(data_details)
 
-    #data_str = input("enter employee detail here  \n")
-    #print(f"the data provided is {data_str}")
-
-    #empl_data =  data_details.split(",")
-    #print(empl_data)
-
-    #print(data_details)
-
+    
 #employee_data()
 
 def update_employee_record(data):
@@ -69,7 +64,9 @@ def update_employee_record(data):
 
 data_details= employee_data()
 
-update_employee_record(data_details)
+
+#update_employee_record(data_details)
+#cal_over_time()
 
 
     
@@ -134,20 +131,38 @@ def cal_net_pay():
 
 #cal_net_pay()
 
-
 while True:
-    answer = input("Do you want to continue with the program? (Yes/No): ")
-    
+    # ask user if they want to enter employee data
+    answer = input("Do you want to enter employee data? (yes/no/end): ")
+
     if answer.lower() == "yes":
-        # Call cal_over_time() and netpay() functions
+        # call employee_data() function
+        employee_data()
+        update_employee_record(data_details)
+    elif answer.lower() == "no":
+        # call overtime() and netpay() functions
         cal_over_time()
         cal_net_pay()
-    elif answer.lower() == "no":
-        # Exit the program
-        exit()
+
+    elif answer.lower() == "end":
+        # exit the program
+        break
     else:
-        # If the user enters an invalid answer, prompt them again
-        print("Invalid input. Please enter 'Yes' or 'No'.")
+        # if the user enters an invalid answer, prompt them again
+        print("Invalid input. Please enter 'yes', 'no', or 'end'.")
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
