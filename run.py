@@ -32,7 +32,11 @@ def employee_data():
     Get the employee details vie the Terminal and add the
      employee data to the google spreadheet
     """
-    
+    print("*********************************************************************************************")
+    print("***************Welcome tho the Simple__payroll automation************************************")
+    print("*********This program help you to enter Employee Data vie terminal, add record to ***********")
+    print ("the spreadsheet and calculate and print the netpay for each employee for a week( 5 working days)" )
+    print("*************************************************************************************************")
     #answer = input("Do you want to enter employee data? (yes/no/end): ")
     employees = []
     while True:
@@ -62,7 +66,9 @@ def employee_data():
         print("updating  employee record... \n")
         SHEET.append_row([id, name, age, department, salary])
         print("Employee Records  update sucessfull \n")
-        another_employee = input("Do you want to enter another employee? (yes/no): ")
+        another_employee = input("Do you want to enter another employee? (yes/no/end): \n")
+        if  another_employee.lower() == "end":
+            exit()
         if another_employee.lower() == "no":
             break
     return employees
@@ -75,9 +81,12 @@ def cal_over_time():
     """
     this is to calcualte the over time per week
     """
+    while True:
+        print("*******************************************************************")
+        print("This section is to calculate actual salary of an employer per week")
+        print("******************************************************************")
     
-    
-    print('Enter the name of the employee to ge Net salary for the week')
+    print('Enter the name of the employee to get Net salary for the week')
     # assume the regular work hours and maximum hours per day
     
     employee_regular_hours = 40
@@ -94,8 +103,9 @@ def cal_over_time():
     # Calculate the total hours per week worked by the employee
     
     print(f"one week worked hours for {name}  \n")
-    print("(Example: 6,5,0,6,5\n)")
-    data_str = input(f"Enter worked hours  per week for {name}: \n")
+    print("numbers of hours puting must be sparated by commas")
+    print("(Example: 6,5,0,6,5)\n")
+    data_str = input(f"Enter worked hours (5days)per week for {name}: \n")
 
     hours_worked = data_str.split(",")
     print(hours_worked)
@@ -131,7 +141,10 @@ def cal_net_pay():
 
     net_pay = int((basic_salary + over_time) - total_deduction)
 
-    print(net_pay)
+    print(f"net_pay, for {name}")
+    name = input("Do you want to enter another employee to calculate Net salary? (yes/no): \n")
+    if  another_employee.lower() == "no":
+            exit()
 
 cal_net_pay()
 
@@ -151,32 +164,4 @@ cal_net_pay()
 
 
 
-#data_details= employee_data()
 
-#update_employee_record(data_details)
-
-
-
-
-
-
-# define a function to add employee data to the spreadsheet
-#def add_employee_data():
- #   name = input('Enter employee name: ')
-  #  age = input('Enter employee age: ')
-   # position = input('Enter employee position: ')
-    #salary = input('Enter employee salary: ')
-    
-    # add the employee data to the spreadsheet
-    #SHEET.append_row([name, age, position, salary])
-    
-    # ask the user if they want to continue adding data
-    #answer = input('Do you want to add more data? (y/n) ')
-    #if answer == 'y':
-        #add_employee_data()
-    #else:
-        ## call another function or exit the program here
-        #print('Program completed.')
-
-# call the function to add employee data
-#add_employee_data()
