@@ -15,7 +15,7 @@ SCOPE = [
 
 # Load the credentials from the JSON file
 creds = json.load(open('creds.json'))
-
+#This authenticate and authorize access to Google Cloud APIs.
 CREDS = Credentials.from_service_account_info(creds)
 
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
@@ -46,28 +46,34 @@ def employee_data():
         if not id.isalnum():
             print("Invalid id. Please enter a valid id containing only letters and numbers.")
             continue
+
         name = input("Enter employee name: ")
         if not name.isalpha():
             print("Invalid name. Please enter a valid name containing only letters.")
             continue
+
         age = input("Enter employee age: ")
         if not age.isdigit() or int(age) < 18 or int(age) > 100:
             print("Invalid age. Please enter a valid age between 18 and 100.")
             continue
+
         department = input("Enter employee department: ")
         if not department.isalpha():
             print("Invalid department. Please enter a valid position containing only letters.")
             continue
+
         salary = input("Enter employee Basic Salary: ")
         if not salary.isdigit():
             print("Invalid salary. Please enter a valid salary containing only numbers.")
             continue
+
         employees.append({"id": id,"name": name, "age": age, "department": department})
 
         # add the employ detail to the spreed sheet
         print("updating  employee record... \n")
         SHEET.append_row([id, name, age, department, salary])
-        print("Employee Records  update sucessfull \n")
+        print("Employee Records added sucessfull \n")
+
         another_employee = input("Do you want to enter another employee? (yes/no/end): \n")
         if  another_employee.lower() == "end":
             print("Goodby, Thank you for using our Program \n")
@@ -75,21 +81,15 @@ def employee_data():
         if another_employee.lower() == "no":
             break
     return employees
-
 employees = employee_data()
-print(employees)
- 
+
 
 def hour_work_week():
     """
-    this is to calcualte the over time per week
+    This input the 5 day week hour sand  calcualte the over 
+    time per week
     """
-    #print("*******************************************************************")
-    #print("This section is to calculate actual salary of an employer per week")
-    #print("******************************************************************")
-   
     global total_hours
-    #print('Enter the name of the employee to get Net salary for the week')
     global name
     name = input("Enter employee name: ")
     while True:
@@ -97,12 +97,11 @@ def hour_work_week():
         print("numbers of hours puting must be sparated by commas")
         print("(Example: 6,5,0,6,5)\n")
 
-        data_str = input("Enter your data here: ")
-
-        hours_worked = data_str.split(",")
+        hour_str = input("Enter hours  here: ")
+        hours_worked = hour_str.split(",")
 
         if valid_hours(hours_worked):
-            print("Hours is valid!")
+            print("Hours entered are is valid!")
             break
 
     print (hours_worked)
@@ -113,13 +112,11 @@ def hour_work_week():
     print(f"The sum of hours worked for 5 working days(a week) for {name}:", sum)
     total_hours = sum
     
-    
-
 def valid_hours(hours_worked):
     """
     Inside the try, converts all string values into integers.
     Raises ValueError if strings cannot be converted into int,
-    or if there aren't exactly 6 values.
+    or if there aren't exactly 5 values.
     """
     try:
         [int(value) for value in hours_worked]
@@ -133,8 +130,8 @@ def valid_hours(hours_worked):
 
     return True
 
-
-print("Section for calculating actual salary for each employee per week (Netpay) \n") 
+print("*************************************************************************")
+print("Section for calculating actual salary for each employee per week(Netpay) \n") 
 print("**************************************************************************") 
 hourly_rate = float(input("Enter hourly rate: "))
 
@@ -142,14 +139,11 @@ def overtime(total_hours, hourly_rate):
     """
     this is to calcualte the over time per week
     """
-    # assume the regular work hours and maximum hours per day
-
-    #employee_regular_hours = 40
+    # assume  maximum hours per day
     max_hours_per_day = 8
-
     total_hours = f"{total_hours}" 
-    
 
+     # This check if employee has work over time or not.
     if int(total_hours) > 40:
         overtime_hours = int(total_hours) - 40
         overtime_pay = overtime_hours * hourly_rate * 1.5
@@ -158,17 +152,23 @@ def overtime(total_hours, hourly_rate):
     return overtime_pay
 
 def net_pay( total_hours, hourly_rate):
+    """
+    This calculate  actual amount of money(net pay) 
+    for an employee take home every week
+    """
+    # assume the regular work hours per week ;
     employee_regular_hours = 40
 
     regular_pay = total_hours * hourly_rate
 
+    # This get the total deduction that must be deducted from the regular pay ;
     health_insurance = 0.05 * regular_pay
     social_maintance_fees = 0.03 * regular_pay
     total_deduction = round(float(health_insurance + social_maintance_fees))
 
 
     overtime_pay = overtime(total_hours, hourly_rate)
-    total_pay = regular_pay + overtime_pay - total_deduction
+    total_pay = (regular_pay + overtime_pay) - total_deduction
     over_time =  total_hours -  employee_regular_hours
 
 
@@ -176,8 +176,9 @@ def net_pay( total_hours, hourly_rate):
     print(f"Overtime pay: {overtime_pay}")
     print(f"Total Deduction:{ total_deduction}")
     print("************************************\n")
-    print(f"Net pay for {name}: {total_pay}")
-    
+    print(f"Net pay for {name} for a week: {total_pay}")
+
+    # This is asking the user if they want to calculate another netpay. 
     response = input("Do you want to calculate another paycheck? (yes/no): ")
     if response.lower() == "yes":
         hourly_rate = float(input("Enter hourly rate: "))
