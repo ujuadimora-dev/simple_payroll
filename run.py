@@ -144,44 +144,48 @@ def overtime(total_hours, hourly_rate):
     """
     # assume the regular work hours and maximum hours per day
 
-    employee_regular_hours = 40
+    #employee_regular_hours = 40
     max_hours_per_day = 8
-    hourly_rate = 10
+
     total_hours = f"{total_hours}" 
     
 
     if int(total_hours) > 40:
-        overtime_hours =  int(total_hours) - 40
+        overtime_hours = int(total_hours) - 40
         overtime_pay = overtime_hours * hourly_rate * 1.5
     else:
         overtime_pay = 0
     return overtime_pay
 
 def net_pay( total_hours, hourly_rate):
+    employee_regular_hours = 40
 
     regular_pay = total_hours * hourly_rate
 
     health_insurance = 0.05 * regular_pay
     social_maintance_fees = 0.03 * regular_pay
-    total_deduction = float(health_insurance + social_maintance_fees)
+    total_deduction = round(float(health_insurance + social_maintance_fees))
 
 
     overtime_pay = overtime(total_hours, hourly_rate)
     total_pay = regular_pay + overtime_pay - total_deduction
+    over_time =  total_hours -  employee_regular_hours
 
-    print(f"Regular pay: {regular_pay}")
+
+    print(f"Basic pay: {regular_pay}")
     print(f"Overtime pay: {overtime_pay}")
     print(f"Total Deduction:{ total_deduction}")
-    print(f"Total pay: {total_pay}")
+    print("************************************\n")
+    print(f"Net pay for {name}: {total_pay}")
     
-    response = input("Do you want to calculate another paycheck? (y/n): ")
-    if response.lower() == "y":
+    response = input("Do you want to calculate another paycheck? (yes/no): ")
+    if response.lower() == "yes":
         hourly_rate = float(input("Enter hourly rate: "))
         hour_work_week()
         overtime(total_hours,hourly_rate)
         net_pay( total_hours, hourly_rate)
     else:
-        print("Goodbye!")
+        print(" Thanks for using our Program Goodbye!")
 
 
 
