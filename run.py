@@ -35,7 +35,7 @@ def employee_data():
     print("*********************************************************************************************")
     print("***************Welcome tho the Simple__payroll automation************************************")
     print("*********This program help you to enter Employee Data vie terminal, add record to ***********")
-    print ("the spreadsheet and calculate and print the netpay for each employee for a week( 5 working days)" )
+    print ("the spreadsheet and calculate and print the netpay for each employee for a week( 5 working days)")
     print("*************************************************************************************************")
     #answer = input("Do you want to enter employee data? (yes/no/end): ")
     employees = []
@@ -77,91 +77,109 @@ employees = employee_data()
 print(employees)
  
 
-def cal_over_time():
+def hour_work_week():
     """
     this is to calcualte the over time per week
     """
-    while True:
-        print("*******************************************************************")
-        print("This section is to calculate actual salary of an employer per week")
-        print("******************************************************************")
-    
+    print("*******************************************************************")
+    print("This section is to calculate actual salary of an employer per week")
+    print("******************************************************************")
+   
+    global total_hours
     print('Enter the name of the employee to get Net salary for the week')
-    # assume the regular work hours and maximum hours per day
-    
-    employee_regular_hours = 40
-    max_hours_per_day = 8
-
-
-   # # Define the regular work hours and maximum hours per day
     global name
-    
-    name =  input('enter  employee Name \n ')
-    #employee_regular_hours = 40
-    #max_hours_per_day = 8
+    name = input("Enter employee name: ")
+    while True:
+        print(f"Please enter one week hours for {name}.")
+        print("numbers of hours puting must be sparated by commas")
+        print("(Example: 6,5,0,6,5)\n")
 
-    # Calculate the total hours per week worked by the employee
-    
-    print(f"one week worked hours for {name}  \n")
-    print("numbers of hours puting must be sparated by commas")
-    print("(Example: 6,5,0,6,5)\n")
-    data_str = input(f"Enter worked hours (5days)per week for {name}: \n")
+        data_str = input("Enter your data here: ")
 
-    hours_worked = data_str.split(",")
-    print(hours_worked)
+        hours_worked = data_str.split(",")
 
-    # Initialize a variable to hold the sum
+        if valid_hours(hours_worked):
+            print("Hours is valid!")
+            break
+
+    print (hours_worked)
     sum = 0
-
-    # Iterate over the 5 elements of the array and add them to the sum
     for i in range(5):
         sum += int(hours_worked[i])
-
-    # Print the sum
-    print("The sum of hours worked for 5 working days(a week):", sum)
+        # Print the sum
+    print(f"The sum of hours worked for 5 working days(a week) for {name}:", sum)
     total_hours = sum
-    # Calculate the overtime hours
-    global over_time
-    over_time =  total_hours -  employee_regular_hours
+    
+    
 
-    # Print the results of the overtime/undertime hours worked per week
-    print("Total hours worked:", total_hours)
-    print("Overtime hours:", over_time)
-    #print("Overtime pay:", overtime_pay)
+def valid_hours(hours_worked):
+    """
+    Inside the try, converts all string values into integers.
+    Raises ValueError if strings cannot be converted into int,
+    or if there aren't exactly 6 values.
+    """
+    try:
+        [int(value) for value in hours_worked]
+        if len(hours_worked) != 5:
+            raise ValueError(
+                f"Exactly 5 values required, you provided {len(hours_worked)}"
+            )
+    except ValueError as e:
+        print(f"Invalid data: {e}, please try again.\n")
+        return False
 
-cal_over_time()
+    return True
 
+#print(hours_worked)
+#hour_work_week()
+#valid_hours(values)
+#print(hours_worked)
+#hour_work_week()   
+hourly_rate = float(input("Enter hourly rate: "))
 
-def cal_net_pay():
-    basic_salary = float(input(f"enter basic Salary for {name} \n"))
+def overtime(total_hours, hourly_rate):
+    """
+    this is to calcualte the over time per week
+    """
+    # assume the regular work hours and maximum hours per day
 
-    health_insurance = 0.05 * basic_salary
-    social_maintance_fees = 0.03 * basic_salary
-    total_deduction = float(health_insurance + social_maintance_fees)
-
-    net_pay = int((basic_salary + over_time) - total_deduction)
-
-    print(f"net_pay, for {name}")
-    name = input("Do you want to enter another employee to calculate Net salary? (yes/no): \n")
-    if  another_employee.lower() == "no":
-            exit()
-
-cal_net_pay()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    employee_regular_hours = 40
+    max_hours_per_day = 8
+    hourly_rate = 10
+    total_hours = f"{total_hours}" 
+    
 
 
+    if int(total_hours) > 40:
+        overtime_hours =  int(total_hours) - 40
+        overtime_pay = overtime_hours * hourly_rate * 1.5
+    else:
+        overtime_pay = 0
+    return overtime_pay
+
+def net_pay( total_hours, hourly_rate):
+    hourly_rate = 10
+    regular_pay = total_hours * hourly_rate
+    overtime_pay = overtime(total_hours, hourly_rate)
+    total_pay = regular_pay + overtime_pay
+    print(f"Regular pay: {regular_pay}")
+    print(f"Overtime pay: {overtime_pay}")
+    print(f"Total pay: {total_pay}")
+    response = input("Do you want to calculate another paycheck? (y/n): ")
+    if response.lower() == "y":
+        hourly_rate = float(input("Enter hourly rate: "))
+        hour_work_week()
+        #name = input("Enter employee name: ")
+       #hour_work_week():
+        #total_hours = float(input(f"Enter hours worked for {name}: "))
+        #hourly_rate = float(input("Enter hourly rate: "))
+        overtime(total_hours,hourly_rate)
+        net_pay( total_hours, hourly_rate)
+    else:
+        print("Goodbye!")
 
 
+
+hour_work_week()   
+overtime(total_hours,hourly_rate)
+net_pay( total_hours,hourly_rate)
