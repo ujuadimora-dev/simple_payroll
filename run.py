@@ -91,12 +91,12 @@ def employee_data():
             continue
 
     return employees
-#employees = employee_data()
+employees = employee_data()
 
 
 def hour_work_week():
-    """no
-    This input the 5 day week hour sand  calcualte the over 
+    """
+    This input the 5 days week hour sand  calcualte the over 
     time per week
     """
     global total_hours
@@ -154,7 +154,7 @@ def net_pay(total_hours, hourly_rate):
     This function calculates the overtime,regular pay
     and total net pay of  an employee
     """
-    # assume maximum hours per day
+    # assume maximum hours per is 8
     employee_regular_hours = 40
     over_time_hr = total_hours - employee_regular_hours
     regular_pay = total_hours * hourly_rate
