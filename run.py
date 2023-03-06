@@ -27,11 +27,12 @@ SHEET = GSPREAD_CLIENT.open("simple_payrolls").sheet1
 
 
 
-print("*********************************************************************************************")
-print("***************Welcome to the Simple__payroll automation************************************")
-print("*********This program help you to enter Employese Data vie terminal, add record to ***********")
-print ("the spreadsheet and calculate and print the netpay for each employee for a week( 5 working days)")
-print("************************************************************************************************")
+print("***************************************************************")
+print("***************Welcome to the Simple__payroll automation********")
+print("******This program help you to enter Employese Data vie*********")
+print("***terminal, add record to the spreadsheet and calculate*********")
+print("and print the netpay for each employee for a week(5 working days)")
+print("****************************************************************")
 
 
 def employee_data():
@@ -45,28 +46,28 @@ def employee_data():
         id = input("Enter employee id: ")
         if not id.isalnum():
             print("Invalid id. Please enter a valid id containing only letters and numbers.")
-            continue
+            id = input(" Re-enter employee id: ")
 
         name = input("Enter employee name: ")
         if not name.isalpha():
             print("Invalid name. Please enter a valid name containing only letters.")
-            continue
+            name = input("Re-enter employee name: ")
 
         age = input("Enter employee age: ")
         if not age.isdigit() or int(age) < 18 or int(age) > 100:
             print("Invalid age. Please enter a valid age between 18 and 100.")
-            continue
-
+            age = input("Re-enter employee age: ")
+         
         department = input("Enter employee department: ")
         if not department.isalpha():
             print("Invalid department. Please enter a valid position containing only letters.")
-            continue
-
+            department = input("Re-enter employee department: ")
+          
         salary = input("Enter employee Basic Salary: ")
         if not salary.isdigit():
             print("Invalid salary. Please enter a valid salary containing only numbers.")
-            continue
-
+            salary = input("Re-enter employee Basic Salary: ")
+           
         employees.append({"id": id,"name": name, "age": age, "department": department})
 
         # add the employ detail to the spreed sheet
@@ -75,11 +76,16 @@ def employee_data():
         print("Employee Records added sucessfull \n")
 
         another_employee = input("Do you want to enter another employee? (yes/no/end): \n")
-        if  another_employee.lower() == "end":
-            print("Goodby, Thank you for using our Program \n")
-            exit()
+
         if another_employee.lower() == "no":
+            
             break
+        elif another_employee.lower() == "end":
+             print("Program ended! Thanks for using our Program.")
+             exit()
+        else:
+            continue
+
     return employees
 employees = employee_data()
 
@@ -134,62 +140,66 @@ print("*************************************************************************
 print("Section for calculating actual salary for each employee per week(Netpay) \n") 
 print("**************************************************************************") 
 hourly_rate = float(input("Enter hourly rate: "))
+while  hourly_rate < 7.5 or hourly_rate > 18:
+        print("Error: the hours rate is between the 7,5 and 18")
+        hourly_rate = float(input("re-enter hourly rate: "))
 
-def overtime(total_hours, hourly_rate):
-    """
-    this is to calcualte the over time per week
-    """
-    # assume  maximum hours per day
-    max_hours_per_day = 8
-    total_hours = f"{total_hours}" 
 
-     # This check if employee has work over time or not.
-    if int(total_hours) > 40:
-        overtime_hours = int(total_hours) - 40
-        overtime_pay = overtime_hours * hourly_rate * 1.5
-    else:
-        overtime_pay = 0
-    return overtime_pay
-
-def net_pay( total_hours, hourly_rate):
+def net_pay(total_hours, hourly_rate):
     """
-    This calculate  actual amount of money(net pay) 
-    for an employee take home every week
+    This function calculates the overtime,regular pay
+    and total net pay of  an employee
     """
-    # assume the regular work hours per week ;
+    # assume maximum hours per day
     employee_regular_hours = 40
-
+    over_time_hr = total_hours - employee_regular_hours
     regular_pay = total_hours * hourly_rate
-
+    
     # This get the total deduction that must be deducted from the regular pay ;
     health_insurance = 0.05 * regular_pay
     social_maintance_fees = 0.03 * regular_pay
     total_deduction = round(float(health_insurance + social_maintance_fees))
+    total_pay = regular_pay - total_deduction
 
 
-    overtime_pay = overtime(total_hours, hourly_rate)
-    total_pay = (regular_pay + overtime_pay) - total_deduction
-    over_time =  total_hours -  employee_regular_hours
-
-
-    print(f"Basic pay: {regular_pay}")
-    print(f"Overtime pay: {overtime_pay}")
-    print(f"Total Deduction:{ total_deduction}")
-    print("************************************\n")
-    print(f"Net pay for {name} for a week: {total_pay}")
+    # This check if employee has worked overtime or not.
+    if  total_hours <= 40:
+        print(f"     PayRoll Information for {name}")
+        print(f"Pay rate   ${hourly_rate }")
+        print(f"Employee Regular Hours     {employee_regular_hours }")
+        print("overTime Hours     0")
+        print(" Over Time pay   $0.00")
+        print(f"Basic pay    ${regular_pay}")
+        print(f"Total Deduction: {total_deduction}")
+        print("**********************************")
+        print(f"Total Pay    ${total_pay}")
+    else:
+        total_hours > 40
+        over_time_hr = total_hours - 40
+        overtime_pay = over_time_hr * hourly_rate * 1.5
+        
+        print(f"     PayRoll Information for {name}")
+        print(f"Pay rate   ${hourly_rate }")
+        print(f"Employee Regular Hours     {employee_regular_hours }")
+        print(f"over time honur:{over_time_hr}")
+        print(f"Overtime pay: {overtime_pay}")
+        print(f"Basic pay    ${regular_pay}")
+        print(f"Total Deduction: {total_deduction}")
+        print("***************************************")
+        print(f"Total Pay    ${total_pay}")
 
     # This is asking the user if they want to calculate another netpay. 
     response = input("Do you want to calculate another paycheck? (yes/no): ")
     if response.lower() == "yes":
         hourly_rate = float(input("Enter hourly rate: "))
+        #overtime_hourly_rate = float(input("Enter overtime hourly rate: "))
         hour_work_week()
-        overtime(total_hours,hourly_rate)
-        net_pay( total_hours, hourly_rate)
+        net_pay(total_hours, hourly_rate)
+        
     else:
-        print(" Thanks for using our Program Goodbye!")
+        print("Thanks for using our Program Goodbye!")
 
+    #return overtime
 
-
-hour_work_week()   
-overtime(total_hours,hourly_rate)
-net_pay( total_hours,hourly_rate)
+hour_work_week() 
+net_pay(total_hours, hourly_rate)
