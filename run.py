@@ -28,25 +28,29 @@ SHEET = GSPREAD_CLIENT.open("simple_payrolls").sheet1
 
 
 print("***************************************************************")
-print("***************Welcome to the Simple__payroll automation********")
-print("******This program help you to enter Employese Data vie*********")
-print("***terminal, add record to the spreadsheet and calculate*********")
-print("and print the netpay for each employee for a week(5 working days)")
+print("***********Welcome to the Simple__payroll automation***********")
+print(" ***********It has two section: Section1 and section2***********")
+print("***Section 1: This program help you to enter Employese Data*****")
+print("******** vie terminal, add record to the spreadsheet ***********")
+print("***Section 2: calculate, overtime, Deductions and Net pay*******")
+print("**print them for each employee for a week(5 working days)*******")
 print("****************************************************************")
 
 
 def employee_data():
-    #global name
+    
     """
     Get the employees details vie the Terminal and add the
-     employees data to the google spreadheet
+    employees data to the google spreadheet
     """
+    print(" Welcome to section 1")
     employees = []
     while True:
         id = input("Enter employee id: ")
         if not id.isalnum():
             print("Invalid id. Please enter a valid id containing only letters and numbers.")
             id = input(" Re-enter employee id: ")
+
 
         name = input("Enter employee name: ")
         if not name.isalpha():
@@ -87,11 +91,11 @@ def employee_data():
             continue
 
     return employees
-employees = employee_data()
+#employees = employee_data()
 
 
 def hour_work_week():
-    """
+    """no
     This input the 5 day week hour sand  calcualte the over 
     time per week
     """
@@ -137,7 +141,7 @@ def valid_hours(hours_worked):
     return True
 
 print("*************************************************************************")
-print("Section for calculating actual salary for each employee per week(Netpay) \n") 
+print("Section2: for calculating actual salary for each employee per week(Netpay) \n") 
 print("**************************************************************************") 
 hourly_rate = float(input("Enter hourly rate: "))
 while  hourly_rate < 7.5 or hourly_rate > 18:
@@ -192,12 +196,11 @@ def net_pay(total_hours, hourly_rate):
     response = input("Do you want to calculate another paycheck? (yes/no): ")
     if response.lower() == "yes":
         hourly_rate = float(input("Enter hourly rate: "))
-        #overtime_hourly_rate = float(input("Enter overtime hourly rate: "))
         hour_work_week()
         net_pay(total_hours, hourly_rate)
         
     else:
-        print("Thanks for using our Program Goodbye!")
+        print("Thanks for using our Program, See you again!")
 
     #return overtime
 
