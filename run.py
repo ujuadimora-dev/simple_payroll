@@ -169,28 +169,30 @@ def net_pay(total_hours, hourly_rate):
     # This check if employee has worked overtime or not.
     if  total_hours <= 40:
         print(f"     PayRoll Information for {name}")
+        print("**************************************")
         print(f"Pay rate   ${hourly_rate }")
-        print(f"Employee Regular Hours     {employee_regular_hours }")
-        print("overTime Hours     0")
-        print(" Over Time pay   $0.00")
-        print(f"Basic pay    ${regular_pay}")
-        print(f"Total Deduction: {total_deduction}")
+        print(f"Employee Regular Hours {employee_regular_hours }")
+        print("overTime Hours:     0")
+        print(" Over Time pay:   $0.00")
+        print(f"Basic pay:    ${regular_pay}")
+        print(f"Total Deduction: ${total_deduction}")
         print("**********************************")
-        print(f"Total Pay    ${total_pay}")
+        print(f"TotalNet Pay:  ${total_pay}")
     else:
         total_hours > 40
         over_time_hr = total_hours - 40
         overtime_pay = over_time_hr * hourly_rate * 1.5
         
         print(f"     PayRoll Information for {name}")
-        print(f"Pay rate   ${hourly_rate }")
-        print(f"Employee Regular Hours     {employee_regular_hours }")
-        print(f"over time honur:{over_time_hr}")
-        print(f"Overtime pay: {overtime_pay}")
-        print(f"Basic pay    ${regular_pay}")
-        print(f"Total Deduction: {total_deduction}")
+        print("**************************************")
+        print(f"Pay rate:   ${hourly_rate }")
+        print(f"Employee Regular Hours:{employee_regular_hours }")
+        print(f"over time hour:{over_time_hr}")
+        print(f"Overtime pay: ${overtime_pay}")
+        print(f"Basic pay:    ${regular_pay}")
+        print(f"Total Deduction: $ {total_deduction}")
         print("***************************************")
-        print(f"Total Pay    ${total_pay}")
+        print(f"TotalNet Pay:    ${total_pay}")
 
     # This is asking the user if they want to calculate another netpay. 
     response = input("Do you want to calculate another paycheck? (yes/no): ")
