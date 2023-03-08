@@ -43,7 +43,8 @@ def employee_data():
     Get the employees details vie the Terminal and add the
     employees data to the google spreadheet
     """
-    print(" Welcome to section 1")
+    print(" Welcome to the Employee Record Update section ")
+    print("*************************************************")
     employees = []
     while True:
         id = input("Enter employee id: ")
@@ -99,6 +100,9 @@ def hour_work_week():
     This inputs the 5 days week hours and calculates the over 
     time per week
     """
+    print("**************************************************")
+    print("*************NetPay calculation Section***********")
+    print("**************************************************")
     global name
     name = input("Enter employee name: ")
     while True:
@@ -117,7 +121,12 @@ def hour_work_week():
     total_hours = sum([int(hour) for hour in hours_worked])
     print(f"The sum of hours worked for 5 working days (a week) for {name}: {total_hours}")
 
-    hourly_rate = float(input("Enter hourly1 rate: "))
+    # valiidate the hourly data
+    hourly_rate = input("Enter hourly rate: ")
+    hourly_rate = float(hourly_rate)
+    if not isinstance(hourly_rate, float) or hourly_rate < 7.5 or hourly_rate > 18:
+        print("Invalid hourly_rate. Please enter a valid hourly_rate between 7.5 and 18.")
+        hourly_rate = float(input("Re-enter employee hourly_rate: "))     
     net_pay(total_hours, hourly_rate)
 
 def valid_hours(hours_worked):
@@ -161,7 +170,7 @@ def net_pay(total_hours, hourly_rate):
         print(f"     PayRoll Information for {name}")
         print("**************************************")
         print(f"Pay rate   ${hourly_rate }")
-        print(f"Employee Regular Hours {employee_regular_hours }")
+        print(f"Employee Regular Hours: {employee_regular_hours }")
         print("overTime Hours:     0")
         print(" Over Time pay:   $0.00")
         print(f"Basic pay:    ${regular_pay}")
@@ -176,7 +185,7 @@ def net_pay(total_hours, hourly_rate):
         print(f"     PayRoll Information for {name}")
         print("**************************************")
         print(f"Pay rate:   ${hourly_rate }")
-        print(f"Employee Regular Hours:{employee_regular_hours }")
+        print(f"Employee Regular Hours: {employee_regular_hours }")
         print(f"over time hour:{over_time_hr}")
         print(f"Overtime pay: ${overtime_pay}")
         print(f"Basic pay:    ${regular_pay}")
@@ -190,19 +199,19 @@ def net_pay(total_hours, hourly_rate):
         hour_work_week()
         total_hours = int(total_hours)
         net_pay(total_hours, hourly_rate)
-        
     else:
-        print("Thanks for using our Program, See you again!")
+        empl_response = input("Would you like to return to the employees Update? (yes/no): ")
+    if empl_response.lower() == "yes":
+        employees = employee_data()
+    else:
         exit()
-
-    return net_pay(total_hours, hourly_rate)
 
 while True:
     # Display menu options
     print("Choose an option:")
-    print("1. Enter employee data")
-    print("2. Calculate net pay")
-    print("3. Quit")
+    print("1. Do you what to add/update Employees Record?")
+    print("2. Do you want to Calculate net pay for Employees?")
+    print("3. Do you want to end the Program?")
 
     # Get user choice
     choice = input("Enter your choice (1-3): ")
@@ -211,13 +220,12 @@ while True:
     if choice == "1":
         employees = employee_data()
     elif choice == "2":
-       #hour_rate()
-        #hour_work_week()
-        #hourly_rate = float(input("Enter hourly2 rate: "))
         hour_work_week()
-        total_hours = int(total_hours)
+       # total_hours = int(total_hours)
         net_pay(total_hours , hourly_rate)
     elif choice == "3":
+        print(" End of the program, see you again")
         break
+        
     else:
         print("Invalid choice. Please try again.")
