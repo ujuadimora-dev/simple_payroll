@@ -90,9 +90,21 @@ Hourly Rate(amount of money charge per hour)between 7.5 and 18:
 
 
 
-Honur enterd must five in number anseparateded by commas
+Hour enterd must five in number anseparateded by commas
 
 ![section output](doc/hours.PNG)
+
+## Data Modal and Deign
+1.Flowchart: That is the first step. This help  to know the direction am going, also not to be confused
+![section output](doc/flowcharrt.png)
+
+2. Google sheet: Here Googlesheet to store the Employee data. In order for python program to access and authentic
+The googlesheet. Below are the step you need to take:
+Step1:
+
+
+
+
 
 
 
