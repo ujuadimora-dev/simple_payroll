@@ -114,27 +114,50 @@ If The User yes, The program for calculating Net Pay will load gain and run
 
 2. Google sheet: Here Googlesheet to store the Employee data. In order for python program to access and authentic
 The googlesheet. Below are the step you need to take:
-Step1:
+## Step1: Create project Name: in this name is Simplepayroll( no space in between)
 
 ![Step1](doc/googlesheet1.PNG)
-Step2
-![Step1](doc/googlesheet2.PNG)
-Step3
-![Step1](doc/googlesheet3.PNG)
-Step4
-![Step1](doc/googlesheet4.PNG)
-Step5
-![Step1](doc/googlesheet5.PNG)
-Step6
-![Step1](doc/googlesheet6.PNG)
-step7
+
+
+## Step2: create API Libray
+![Step2](doc/googlesheet2.PNG)
+
+
+## Step3; here is the API Libary Dashboard, Search for Google Drive API and Enable it
+![Step3](doc/googlesheet3.PNG)
+
+
+## Step4: here create Credential  by clicking CreatCredential button
+![Step4](doc/googlesheet4.PNG)
+
+
+## Step5: Here create esential Page , select
+* Application data
+* No , i am not using them
+* click Next button
+
+![Step5](doc/googlesheet5.PNG)
+
+
+## Step6: Here create Service Account( Admora is the service account here) , then click create and continues
+![Step6](doc/googlesheet6.PNG)
+
+
+## step7: Click on the service email account
 ![Step1](doc/googlesheet7.PNG)
-step8
+
+
+## step8: Here is service email page and click on the key
 ![Step1](doc/googlesheet8.PNG)
-step9
+
+
+## step9: Here is Key Page and click ADDKEY, the popup message will comeup and select JSON and create
 ![Step1](doc/googlesheet9.PNG)
-step10
+
+## step10: The access key will download to your computer, ready to be use
 ![Step1](doc/googlesheet10.PNG)
+
+Then Create Google sheet
 !
 
 
