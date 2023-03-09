@@ -1,10 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
-import pandas as pd
-import sys
-
 import json
-import csv
 
 # Define the scope of the Google Sheets API access
 SCOPE = [
@@ -29,7 +25,7 @@ SHEET = GSPREAD_CLIENT.open("simple_payrolls").sheet1
 
 print("***************************************************************")
 print("***********Welcome to the Simple__payroll automation***********")
-print(" ***********It has two section: Section1 and section2***********")
+print("***********It has two section: Section1 and section2***********")
 print("***Section 1: This program help you to enter Employese Data*****")
 print("******** vie terminal, add record to the spreadsheet ***********")
 print("***Section 2: calculate, overtime, Deductions and Net pay*******")
@@ -161,13 +157,13 @@ def net_pay(total_hours, hourly_rate):
     health_insurance = 0.05 * regular_pay
     social_maintance_fees = 0.03 * regular_pay
     total_deduction = round(float(health_insurance + social_maintance_fees))
-    total_pay = regular_pay - total_deduction
+    total_pay = regular_pay - total_deduction 
 
     
 
     # This check if employee has worked overtime or not.
     if   total_hours <= 40:
-        print(f"     PayRoll Information for {name}")
+        print(f"     Paycheck Information for {name}")
         print("**************************************")
         print(f"Pay rate   ${hourly_rate }")
         print(f"Employee Regular Hours: {employee_regular_hours }")
@@ -181,8 +177,9 @@ def net_pay(total_hours, hourly_rate):
         total_hours > 40
         over_time_hr =  total_hours - 40
         overtime_pay = over_time_hr * hourly_rate * 1.5
+        total_pay = (regular_pay - total_deduction) + overtime_pay
         
-        print(f"     PayRoll Information for {name}")
+        print(f"     Paycheck Information for {name}")
         print("**************************************")
         print(f"Pay rate:   ${hourly_rate }")
         print(f"Employee Regular Hours: {employee_regular_hours }")
@@ -204,6 +201,7 @@ def net_pay(total_hours, hourly_rate):
     if empl_response.lower() == "yes":
         employees = employee_data()
     else:
+        print("End of the Program see you again!")
         exit()
 
 while True:

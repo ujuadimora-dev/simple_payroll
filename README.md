@@ -96,11 +96,16 @@ Hour enterd must five in number anseparateded by commas
 
 ## Data Modal and Deign
 1.Flowchart: That is the first step. This help  to know the direction am going, also not to be confused
-![section output](doc/flowcharrt.png)
+![section output](doc/flowcharr.PNG)
 
 2. Google sheet: Here Googlesheet to store the Employee data. In order for python program to access and authentic
 The googlesheet. Below are the step you need to take:
 Step1:
+
+![Step1](doc/)
+
+
+
 
 
 
