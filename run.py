@@ -51,7 +51,7 @@ def employee_data():
 
         name = input("Enter employee name: ")
         if not name.isalpha():
-            print("Invalid name. Please enter a valid name containing only letters.")
+            print("Invalid name. Please enter a valid name containing only letter and there will no space between.")
             name = input("Re-enter employee name: ")
 
         age = input("Enter employee age: ")
@@ -61,13 +61,13 @@ def employee_data():
          
         department = input("Enter employee department: ")
         if not department.isalpha():
-            print("Invalid department. Please enter a valid position containing only letters.")
+            print("Invalid department. Please enter a valid position containing only letters and no space in between.")
             department = input("Re-enter employee department: ")
           
-        salary = input("Enter employee Basic Salary: ")
-        if not salary.isdigit():
-            print("Invalid salary. Please enter a valid salary containing only numbers.")
+        salary = input("Enter employee Basic Salary:$  ")
+        if not salary.isdigit():rs.")
             salary = input("Re-enter employee Basic Salary: ")
+            print("Invalid salary. Please enter a valid salary containing only number
            
         employees.append({"id": id,"name": name, "age": age, "department": department})
 

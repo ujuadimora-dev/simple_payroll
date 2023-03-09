@@ -1,8 +1,8 @@
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-Welcome Adimora Uju Louisa,
 
- Simple Payroll_automation
+
+ # Simple Payroll_automation
 
  This is a Pay roll program. Users can use this program to enter Employees Record vir terminal that can automatically store  or add in a database( google spread). It has two section. Section one is for employees record that can stored up in a spreadsheet and section two  calcculate work overtime, deduction and  netpay for five(5) working days peintit out in a terminal
 "
@@ -11,90 +11,104 @@ Welcome Adimora Uju Louisa,
 
 
 
-![Mocksite Image](doc/mock%20site.PNG)
+![Mocksite Image](doc/mochsite.PNG)
 
 ## Landing Page
 * Landing page image
 * This will immediately show welcome to the Simple payroll automation as shown here:
 * 
 
-![Landing page](doc/welcome.PNG)
+![Landing page](doc/landprog.PNG)
 
 
 
-![How to Play  Payroll Automation]
+![How to Play  Simple Payroll Automation]
 # Section1
 
-* In this section, as USER input the name of employee, the system will automatically update or add
-the emplyee to the the spreadsheet( Google spreadsheet), These are the field;
-Employees Id Number
-Employees Name
-Employees Age
-Employees Department
-Employees Salary
+###  In this section, as USER input the name of employee, the system will automatically update 
+### or add the emplyee(s) to the the spreadsheet( Google spreadsheet), These  field are;
+* Employees Id Number
+* Employees Name
+* Employees Age
+* Employees Department
+* Employees Salary
 
 There is options for the User to keep on adding the field or not
-Each of the field had a validation type:
-ID must be aphanumeric data; either number or alpabet 
-Name filed is only Alphbet
-Age filed is only number( between 18 and 100)
-Department field must be Alphbet
-Salry filed is  only Number
+* Each of the field had a validation type:
+* ID must be aphanumeric data; either number or alpabet 
+* The name filed is only Alphabet (no space)
+* Age filed is only number( between 18 and 100)
+* Department field must be Alphbet
+* Salry filed is  only Number
 
 Any attempt or mistake of putting in the wrong data, will prompt the user and ask the User to reenter
 before continuing in the next field- as can be shown below, 
+
 ## The input validatation and error Checking
 
-![validation](doc/employdata.PNG)
+![validation for Employee field](doc/validata.PNG)
+
+
+## Then Below is Data input wthout error;
+
+![clean data for Employee field](doc/cleainput.PNG)
+
 
 ## The record Added automatically as  shown below
-![Googlesheet result](doc/googlesh.PNG)
+![Googlesheet result](doc/dataadd.PNG)
+
+![Googlesheet live](https://docs.google.com/spreadsheets/d/1xB1I5ZzS6MbHEslyMolpn_rIzKIaiWtBeoSIbD1nfbI/edit#gid=1680754323)
+* Click here to access my Spreadshee(Google sheeet), (https://docs.google.com/spreadsheets/d/1xB1I5ZzS6MbHEslyMolpn_rIzKIaiWtBeoSIbD1nfbI/edit#gid=1680754323)
 
 ## features in these section:
-Allow use to reenter filed when wrong data is being enterd
-Validate Data
-Update automatically to Data Base( in this case Google spread sheet)
+* Allow use to reenter filed when wrong data is being enterd
+* Validate Data
+* Update automatically to Data Base( in this case Google spread sheet)
 
-If User decided to Add another another, the user will  type "Yes", "end"  means End of the program , when the user type "no" The system will take the user to  Section2 
+## If User decided to Add another another, the user will  type "Yes", "end"  means End of the program , when the user type "no" The system will take the user to  Menu list, to select an option
 
-![decision1](doc/decision.png)
+![menulist](doc/menulist.PNG)
 
 
-# Section 2 of the program
+# Section 2 of the program : Get/ calculate Net Pay for Employee(s)
 
-![ssection2](doc/sect2.PNG)
-
-Section 2 program calculate employee(workers) overtime hour, Overtime, Basic Salayr and Net Salary 
+Section 2 program calculate employee(workers) overtime hour, Overtime, Basic Salary and Net Salary 
 for period of five(5) working days(week)and print out payment information of the worker vie the Terminal
 Field needed here
 1. Hourly rate
 2. Name of the Employee(worker)
-3. 5  working days hours(eg. 6,8,5,7,4)
+3. five(5) working days hours(eg. 6,8,0,7,4)( each number for a day hour(s) worked
+
+# Validation for the filed is as shown below:
+
+![sec2 Vallidation](doc/sect2valid.PNG)
 
 once the User enter these items and press Enter, The result is as shown belown
-![section output](doc/netpayy.png)
 
-There is option for User to decide if to continue calcualting the net  or to end the Progrm
+# Below is Data input without errors as shown bleow:
 
-![section output](doc/anotherp.png)
+![section output](doc/errofree.PNG)
+
+
+
+As can be seen above, Paycheck information is printed vie the Terminal.
+* Once the User enter the Name of the Employee.
+* The rate and number of hours worked. 
+The system will automatically print out The PayCheck information of the Worker.
+
+
+# Below shows way you can exit the Program:
+There is option for User to decide if to continue calcualting the net 
+ or return to the  Employee update or exit the program
+
+![section output](doc/exitprog.PNG)
 
 If The User yes, The program for calculating Net Pay will load gain and run
-Bet if the user type No, that is the end the program
 
 
 
-##The input validatation and error Checking for section2
-Hourly Rate(amount of money charge per hour)between 7.5 and 18:
+# Data Modal and Deign
 
-![section output](doc/rate.PNG)
-
-
-
-Hour enterd must five in number anseparateded by commas
-
-![section output](doc/hours.PNG)
-
-## Data Modal and Deign
 1.Flowchart: That is the first step. This help  to know the direction am going, also not to be confused
 ![section output](doc/flowcharr.PNG)
 
@@ -102,7 +116,27 @@ Hour enterd must five in number anseparateded by commas
 The googlesheet. Below are the step you need to take:
 Step1:
 
-![Step1](doc/)
+![Step1](doc/googlesheet1.PNG)
+Step2
+![Step1](doc/googlesheet2.PNG)
+Step3
+![Step1](doc/googlesheet3.PNG)
+Step4
+![Step1](doc/googlesheet4.PNG)
+Step5
+![Step1](doc/googlesheet5.PNG)
+Step6
+![Step1](doc/googlesheet6.PNG)
+step7
+![Step1](doc/googlesheet7.PNG)
+step8
+![Step1](doc/googlesheet8.PNG)
+step9
+![Step1](doc/googlesheet9.PNG)
+step10
+![Step1](doc/googlesheet10.PNG)
+!
+
 
 
 
@@ -131,7 +165,7 @@ Step1:
 *	This will allow to follow on our social media platform
 
 
-![Contact us page](assets/doc/readme-images/contac-form.png)
+![Contact us page](https://docs.google.com/spreadsheets/d/1xB1I5ZzS6MbHEslyMolpn_rIzKIaiWtBeoSIbD1nfbI/edit#gid=1680754323)
 
 @@ -71,7 +71,7 @@ This page shows the contact form
 The  consists of ;
@@ -195,7 +229,7 @@ Form submits with no warnings or errors and the user is redirected to a play.htm
 
 
 _Scenario two -  Inputs(nothing)
-1. Navigate to [Home - FunTime-Quiz]( https://ujuadimora-dev.github.io/FunTime-Quiz/)
+1. Navigate to [Home - FunTime-Quiz]( https://docs.google.com/spreadsheets/d/1xB1I5ZzS6MbHEslyMolpn_rIzKIaiWtBeoSIbD1nfbI/edit#gid=1680754323/)
 2. Scroll down to the form and input the following data:
    - First Name: blanK
 
@@ -259,3 +293,6 @@ Responsiveness of the website worked on all devices, screen sizes and orientatio
 Responsiveness of the website worked on all devices, screen sizes and orientation with the exception of landscape orientation. it wil be taking care of in future 
 
 ## Deployment
+
+
+[def]: https://docs.google.com/spreadsheets/d/1xB1I5ZzS6MbHEslyMolpn_rIzKIaiWtBeoSIbD1nfbI/edit#gid=1680754323/
