@@ -109,55 +109,82 @@ There is option for User to decide if to continue calcualting the net
 
 # Data Modal and Deign
 
-## .Flowchart: That is the first step. This help  to know the direction am going.
+## Flowchart: That is the first step. This help  to know the direction am going.
 ![Flowchart](doc/flowcharr.PNG)
 
 
-## 2. Google sheet: Here Googlesheet to store the Employee data. In order for python program to access and authentic
-* The googlesheet. Below are the steps you need to take:
+## Google sheet: . In order for python program to access and authentic the spreadsheet
+* Below are the steps you need to take:
+
 
 ### Step1: Create project Name: in this name is Simplepayroll( no space in between)
 
 ![Step1](doc/googlesheet1.PNG)
 
 
+
+
 ### Step2: create API Libray
 ![Step2](doc/googlesheet2.PNG)
 
 
-## Step3; here is the API Libary Dashboard, Search for Google Drive API and Enable it
+
+### Step3; here is the API Libary Dashboard, 
+### Search for Google Drive API and Enable it
 ![Step3](doc/googlesheet3.PNG)
 
 
-## Step4: here create Credential  by clicking CreatCredential button
+
+### Step4: here create Credential  by clicking CreatCredential button
 ![Step4](doc/googlesheet4.PNG)
 
 
-## Step5: Here create esential Page , select
+
+
+### Step5: Here create esential Page , select
 * Application data
 * No , i am not using them
 * click Next button
 
+
+
 ![Step5](doc/googlesheet5.PNG)
 
 
-## Step6: Here create Service Account( Admora is the service account here) , then click create and continues
+
+
+### Step6: Here create Service Account( Admora is the service account here)  
+### then click create and continues
 ![Step6](doc/googlesheet6.PNG)
 
 
-## step7: Click on the service email account
+
+
+
+### step7: On the serviceaccount page, 
+### grant editor access to it email
 ![Step7](doc/googlesheet7.PNG)
 
 
-## step8: Here is service email page and click on the key
+
+
+
+### step8: Here is serviceaccount  email page and click on the key
 ![Step8](doc/googlesheet8.PNG)
 
 
-## step9: Here is Key Page and click ADDKEY, the popup message will comeup and select JSON and create
+
+
+
+### step9: Here is Key Page and click ADDKEY, the popup message will comeup and select JSON and create
 ![Step9](doc/googlesheet9.PNG)
 
-## step10: The access key will download to your computer, ready to be use
+
+
+
+### step10: The access key will download to your computer, ready to be use
 ![Step10](doc/googlesheet10.PNG)
+
 
 
 
@@ -188,7 +215,7 @@ Then share the Google spreadsheet with service accounts that have been created, 
 2. I found out that there ware  Logic errors:  while loop is not producing the expected output. I  Try stepping through my code line by line,  using print statements to debug and identify where the error is occurring.
 
 
-## Remaining Bug
+# Remaining Bug
 * There is No Bug Remaining
 
 ## Validator Tesing
@@ -213,9 +240,7 @@ Then share the Google spreadsheet with service accounts that have been created, 
     information vie the Terminal and it will auomatically update the Database and as well automatically
     notify  or send email to the Employee (s)
 
-<br><br>
-
-
+<br><br
 ## Technologies
 
 * Python
