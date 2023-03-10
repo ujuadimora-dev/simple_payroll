@@ -164,7 +164,7 @@ There is option for User to decide if to continue calcualting the net
 ### Then Create Google sheet API and enable it, Through the same way as above
 Then share the Google spreadsheet with service accounts that have been created, in the accesskey, as shown below:
 
-![spreadsheet](doc/goosheet.png)
+![spreadsheet](doc/sharegoogle.png)
 
 
 
