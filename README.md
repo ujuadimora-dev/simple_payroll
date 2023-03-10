@@ -4,9 +4,9 @@
 
  # Simple Payroll_automation
 
- This is a Pay roll program. Users can use this program to enter Employees Record vir terminal that can automatically store  or add in a database( google spread). It has two section. Section one is for employees record that can stored up in a spreadsheet and section two  calcculate work overtime, deduction and  netpay for five(5) working days peintit out in a terminal
+ This is a Payroll System. Befor embarking on this Project, I had in mind the complicated and repetitive work of Accounting Personnels. Users can use this program to enter Employees Records vir terminal that can automatically store  or add in a database( google spread). Print the paycheck information for Employee(s). There are two sections.  Section one is for employees record that can stored up in a spreadsheet and section two  calculate work overtime, deduction and  netpay for five(5) working days, Print  out  paycheck information of Employee(s) vie  a terminal.
 "
- [here](https://simple-payroll-system.herokuapp.com/
+ [here live ](https://simple-payroll-system.herokuapp.com/)
 
 
 
@@ -22,8 +22,8 @@
 
 
 
-![How to Play  Simple Payroll Automation]
-# Section1
+# ![How to Play  Simple Payroll Automation]
+## Section1 :  Get Employees Data and add to the spreadsheet
 
 ###  In this section, as USER input the name of employee, the system will automatically update 
 ### or add the emplyee(s) to the the spreadsheet( Google spreadsheet), These  field are;
@@ -33,7 +33,7 @@
 * Employees Department
 * Employees Salary
 
-There is options for the User to keep on adding the field or not
+### There is options for the User to keep on adding the field or not
 * Each of the field had a validation type:
 * ID must be aphanumeric data; either number or alpabet 
 * The name filed is only Alphabet (no space)
@@ -46,7 +46,7 @@ before continuing in the next field- as can be shown below,
 
 ## The input validatation and error Checking
 
-![validation for Employee field](doc/validata.PNG)
+![validation and error checking for Employees  field](doc/validata.PNG)
 
 
 ## Then Below is Data input wthout error;
@@ -65,19 +65,19 @@ before continuing in the next field- as can be shown below,
 * Validate Data
 * Update automatically to Data Base( in this case Google spread sheet)
 
-## If User decided to Add another another, the user will  type "Yes", "end"  means End of the program , when the user type "no" The system will take the user to  Menu list, to select an option
+## If User decided to Add another another, the user will  type "Yes", "end"  means End of the program , when the user type "no" The system will take the user to  Menu list, to select an option.
 
 ![menulist](doc/menulist.PNG)
 
 
-# Section 2 of the program : Get/ calculate Net Pay for Employee(s)
+# Section 2 of the Project : Get/ calculate Net Pay for Employee(s)
 
 Section 2 program calculate employee(workers) overtime hour, Overtime, Basic Salary and Net Salary 
 for period of five(5) working days(week)and print out payment information of the worker vie the Terminal
-Field needed here
-1. Hourly rate
+Field needed here:
+1. Hourly rate( Amount Money for hours)
 2. Name of the Employee(worker)
-3. five(5) working days hours(eg. 6,8,0,7,4)( each number for a day hour(s) worked
+3. five(5) working days hours(eg. 6,8,0,7,4) each number for a day hour(s) worked.
 
 # Validation for the filed is as shown below:
 
@@ -94,7 +94,7 @@ once the User enter these items and press Enter, The result is as shown belown
 As can be seen above, Paycheck information is printed vie the Terminal.
 * Once the User enter the Name of the Employee.
 * The rate and number of hours worked. 
-The system will automatically print out The PayCheck information of the Worker.
+* The system will automatically print out The PayCheck information of the Worker.
 
 
 # Below shows way you can exit the Program:
@@ -103,23 +103,25 @@ There is option for User to decide if to continue calcualting the net
 
 ![section output](doc/exitprog.PNG)
 
-If The User yes, The program for calculating Net Pay will load gain and run
+* If The User yes, The program for calculating Net Pay will load gain and run
 
 
 
 # Data Modal and Deign
 
-1.Flowchart: That is the first step. This help  to know the direction am going, also not to be confused
-![section output](doc/flowcharr.PNG)
+## .Flowchart: That is the first step. This help  to know the direction am going.
+![Flowchart](doc/flowcharr.PNG)
 
-2. Google sheet: Here Googlesheet to store the Employee data. In order for python program to access and authentic
-The googlesheet. Below are the step you need to take:
-## Step1: Create project Name: in this name is Simplepayroll( no space in between)
+
+## 2. Google sheet: Here Googlesheet to store the Employee data. In order for python program to access and authentic
+* The googlesheet. Below are the steps you need to take:
+
+### Step1: Create project Name: in this name is Simplepayroll( no space in between)
 
 ![Step1](doc/googlesheet1.PNG)
 
 
-## Step2: create API Libray
+### Step2: create API Libray
 ![Step2](doc/googlesheet2.PNG)
 
 
@@ -144,178 +146,103 @@ The googlesheet. Below are the step you need to take:
 
 
 ## step7: Click on the service email account
-![Step1](doc/googlesheet7.PNG)
+![Step7](doc/googlesheet7.PNG)
 
 
 ## step8: Here is service email page and click on the key
-![Step1](doc/googlesheet8.PNG)
+![Step8](doc/googlesheet8.PNG)
 
 
 ## step9: Here is Key Page and click ADDKEY, the popup message will comeup and select JSON and create
-![Step1](doc/googlesheet9.PNG)
+![Step9](doc/googlesheet9.PNG)
 
 ## step10: The access key will download to your computer, ready to be use
-![Step1](doc/googlesheet10.PNG)
-
-Then Create Google sheet
-!
+![Step10](doc/googlesheet10.PNG)
 
 
 
+### Then Create Google sheet API and enable it, Through the same way as above
+Then share the Google spreadsheet with service accounts that have been created, in the accesskey, as shown below:
 
-
-
+![spreadsheet](doc/goosheet.png)
 
 
 
 
+## Testing
+
+### The manual testing was carried out by performing the following:
+*	Passing the code through PEP8 linder and confirm there is no Problem
+*	Given it both valid and invalid data( as mention above), the output was as expected
+*	Tested in my local Terminal and at the Code institute Heroku Termial
 
 
+## Bugs
+### Solved Bugs
+1. It was not been easy for me, I encounterd so many problems, expeciacially indent issues, 
+ while loop issues, validation issues, data not adding to spreadsheet. I have to go back to the drawing borad,
+ credit  Sandwiche automation walkthrough Project, i was able to resovled all these problems.
+
+3. Particular issues i have when i wanted to in net_pay function, was giving me a wrong reuslt, I did not structure the loop while
+
+2. I found out that there ware  Logic errors:  while loop is not producing the expected output. I  Try stepping through my code line by line,  using print statements to debug and identify where the error is occurring.
 
 
+## Remaining Bug
+* There is No Bug Remaining
+
+## Validator Tesing
+ * Pylint
+ * PEP8 linder
+ 
+ ### There was no error found after resoving the following errors below
+
+![Code Issues](doc/codeissues.PNG)
+
+### Below is the is the Result after resoving the issues
+
+![Code Resolves](doc/coderesolv.PNG)
 
 
+### Features to Implement in Future
 
+* 	As a future enhancement, i would like to be able to add, delect, sort, change Employees record 
+    vie Terminal and it will automated be reflected to the datebase.
 
+* 	I would like also in future to be able  to produce Employees record along with their Paycheck 
+    information vie the Terminal and it will auomatically update the Database and as well automatically
+    notify  or send email to the Employee (s)
 
-*	Contact form
-*	This contact form is implemented to allow users to contact 'FunTime-Quiz' 
-*	Username (is must)
-*	Email (a must)
-*	Username (is a must;  if the user did not put in his/her name, the system will complain that the name must be writing)
-*	Email (a must ;if the user did not put in his/her email and must contain(@), the system will complain that the email with (@) must be writing))
-* On successful submission of the contact form, the user will be navigated to Thank.html displaying Thank you message.
-*	This will allow to follow on our social media platform
-
-
-![Contact us page](https://docs.google.com/spreadsheets/d/1xB1I5ZzS6MbHEslyMolpn_rIzKIaiWtBeoSIbD1nfbI/edit#gid=1680754323)
-
-@@ -71,7 +71,7 @@ This page shows the contact form
-The  consists of ;
-1.Score borad for the Great Score
-2. Score board for a poor score or result
-3. The user must select option befor going to another question
-3. The user must select option before going to another question
-
-
-![Quiz section](assets/doc/readme-images/quiz-sec.png)
-@@ -113,8 +113,7 @@ Poor The result or score is when the user score between 0 and 6. As shown below
-
-### Features Left to Implement
-
-* 	As a future enhancement, the contact form will be updated with javascript to send an email to “FunTime-Quiz” with the contact 
-    information.
-* 	As a future enhancement, the contact form will be updated with to send an email to “FunTime-Quiz 's email” and give the user notification information.
-*	There would be dedicated Twitter, youtube, and Facebook handle dedicated to 'FunTime-Quiz'
-*	There should Google map showing the location of FunTime-Quiz company
-*   Timer  for the quiz will be implemented in the future
-@@ -139,8 +138,6 @@ Poor The result or score is when the user score between 0 and 6. As shown below
 <br><br>
-
-
 
 
 ## Technologies
 
-* HTML
-@@ -183,7 +180,7 @@ No elements overlap.
+* Python
+* Google Cloud
+* Github
+* Heroku
+* Code Insitute Deployment Terminal
 
-Actual:
-
-Website behaved as expected with the exception of switching to landscape view in Mozilla Firefox. 
-Website behaved as expected with the exception of switching to landscape . 
-
-Website was also opened on the following devices and no responsive issues were seen:
-
-@@ -209,7 +206,7 @@ Testing was focused to ensure the following criteria were met:
-
-Manual tests were also performed to ensure the website was accessible as possible and an accessibility issue was identified.
-
-Issue : After keyboard controls were implemented, while testing the site with windows 'Narrator' screenreader, it was not clearly known what the purpose of the labels/checkboxes were. An aria-label label was added to the labels for screen readers to alert them that the labels were clickable and what their purpose was. Note:  I was only able to perfoem thise text of th e time factor.
-Issue : After keyboard controls were implemented, while testing the site with windows 'Narrator' screenreader, it was not clearly known what the purpose of the labels/checkboxes were. An aria-label label was added to the labels for screen readers to alert them that the labels were clickable and what their purpose was. Note:  I was only able to perform thise text of th e time factor.
-
-### Lighthouse Testing
-
-@@ -239,7 +236,7 @@ Links on all pages navigated to the correct pages as exptected.
-
-**Form Testing**
-
-The form on the contact Home page was tested to ensure it functioned as expected when correct data was input and when incorrect data was input. The following test scenarios were covered:
-The form on the  Home page was tested to ensure it functioned as expected when correct data was input and when incorrect data was input. The following test scenarios were covered:
-
-_Scenario One - Correct Inputs_
-
-@@ -255,20 +252,15 @@ Expected:
-
-Form submits with no warnings or errors and the user is redirected to a play.html  page.
-
-
-
-_Scenario two -  Inputs(nothing)
-1. Navigate to [Home - FunTime-Quiz]( https://docs.google.com/spreadsheets/d/1xB1I5ZzS6MbHEslyMolpn_rIzKIaiWtBeoSIbD1nfbI/edit#gid=1680754323/)
-2. Scroll down to the form and input the following data:
-   - First Name: blanK
-
-   - First Name: blanK  
-3. Click Submit
-
-Expected:
-
-The form does not submit and an Error is displayed to tell the user that the field is required.
-
-Actual:
-
-Website behaved as expected, error message was displayed and the form did not submit.
-
-
-@@ -279,9 +271,38 @@ Testing was performed on the Font Awesome Social Media icons in the footer to en
-Each item opened a new tab when clicked as expected and correct hover color was present.
-
-**Contact form**
-Testing was performed on the contact page . It will navigate the user to 404.html ,if the user inputs the user name or not. Actually it was expected because due to Time factor. As mention in the 404 message. It is still under contruction
-Testing was performed on the contact page . It will navigate the user to Thank-you.html , 
-
-## Scenario One - Correct Inputs_
-
-Steps to test:
-## If the user inputs the user name and correct email with email format.
-Username: Ada
-Email; uju@gmail.com
-Submit;
-on clicking submit, It will navigate the user to Thank-you.html , 
-
-#  Scenario two - blank Inputs_
-
-Steps to test:
-But  if the user e.g;
-Username:
-Email; uju@gmail.com
-Submit;
-on clicking submit, there will a message telling the user that name filed must not be empty
-
-# Scenario One - in Correct email Inputs_
-
-Steps to test:
-
-But  if the user e.g;
-Username: uju
-Email; ujugmail.com
-Submit;
-on clicking submit, there will a message telling the user that email field must contain @ 
-
-# Actual:
-Website behaved as expected
-
-### Validator Testing 
-
-@@ -307,7 +328,7 @@ Testing was performed on the contact page . It will navigate the user to 404.htm
- * This is yet to be resolved, but will be address in future due time factor
-
-### Unfixed Bugs
-Responsiveness of the website worked on all devices, screen sizes and orientation with the exception of landscape orientation on mozilla firefox. I was unable to resolve this bug on time but will address in a future release.
-Responsiveness of the website worked on all devices, screen sizes and orientation with the exception of landscape orientation. it wil be taking care of in future 
 
 ## Deployment
 
+### The project was deployed using Code Institute Mock Terminal for Heroku
+#### Step for Deloyment
+* The source code deposited in Github
+* Log on Heroku
+* Create a new app
+*  select Setting and configure VAR string
+*  Set the buildpack to python and nodejs in that order
+* Link Heroku  app to Repoistory( Github)
+* Deploy
 
-[def]: https://docs.google.com/spreadsheets/d/1xB1I5ZzS6MbHEslyMolpn_rIzKIaiWtBeoSIbD1nfbI/edit#gid=1680754323/
+## Credit
+* Code Institute for Mock Terminal and on Google cloud and how to get access privatekey
+*  To this https://www.wallstreetmojo.com/payroll-formula/ for the idea how to calulate net pay
+*  To this You channel video , i implemented some his idear but in different way: https://www.youtube.com/watch?v=GRqYkz2myJ0&t=46s
+*  To  https://stackoverflow.com/ and https://www.w3schools.com/
+
+
+
+
