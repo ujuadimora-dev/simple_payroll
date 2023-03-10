@@ -45,11 +45,11 @@ def employee_data():
     employees data to the google spreadheet
     """
 
-    print(" Welcome to the Employee Record Update section ")
+    print(" Welcome to the Employees Record Update section ")
     print("*************************************************")
     employees = []
     while True:
-        idn = input("Enter employee idn: ")
+        idn = input("Enter employee identity No.(idn): ")
         if not idn.isalnum():
             print("Invalid id.enter a valid idn,letters/numbers only.")
             idn = input(" Re-enter employee idn: ")
@@ -79,7 +79,6 @@ def employee_data():
         employees.append(
             {"idn": idn, "name": name, "age": age, "department": department}
         )
-
         # add the employ detail to the spreed sheet
         print("updating  employee record... \n")
         SHEET.append_row([idn, name, age, department, salary])
@@ -96,7 +95,7 @@ def employee_data():
             continue
 
     return employees
-
+    
 
 def hour_work_week():
     """
@@ -105,8 +104,7 @@ def hour_work_week():
     """
     print("**************************************************")
     print("*************NetPay calculation Section***********")
-    print("**************************************************")
-    #global name
+    print("**************************************************") 
     name = input("Enter employee name: ")
     while True:
         print(f"Please enter one week worked hours for {name}.")
