@@ -38,6 +38,7 @@ def employee_data():
     Get the employees details vie the Terminal and add the
     employees data to the google spreadheet
     """
+    global name
     print(" Welcome to the Employee Record Update section ")
     print("*************************************************")
     employees = []
@@ -91,9 +92,6 @@ def employee_data():
     return employees
 
 
-# employees = employee_data()
-
-
 def hour_work_week():
     """
     This inputs the 5 days week hours and calculates the over
@@ -105,7 +103,7 @@ def hour_work_week():
     global name
     name = input("Enter employee name: ")
     while True:
-        print(f"Please enter one week hours for {name}.")
+        print(f"Please enter one week worked hours for {name}.")
         print("Numbers of hours puting must be separated by commas")
         print("(Example: 6,5,0,6,5)\n")
         hour_str = input("Enter hours here: ")

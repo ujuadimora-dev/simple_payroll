@@ -4,7 +4,7 @@
 
  # Simple Payroll_automation
 
- This is a Payroll System. Befor embarking on this Project, I had in mind the complicated and repetitive work of Accounting Personnels. Users can use this program to enter Employees Records vir terminal that can automatically store  or add in a database( google spread). Print the paycheck information for Employee(s). There are two sections.  Section one is for employees record that can stored up in a spreadsheet and section two  calculate work overtime, deduction and  netpay for five(5) working days, Print  out  paycheck information of Employee(s) vie  a terminal.
+ This is a simple Payroll System. Before embarking on this Project, I had in mind the complicated and repetitive work of Accounting Personnels. Users can use this program to enter Employees Records vie terminal that can automatically store  or add the data in a database( google spread). Print the paycheck information for Employee(s). There are two sections.  Section one is for employees record that can stored up in a spreadsheet and section two  calculate work overtime, deduction and  netpay for five(5) working days, Print  out  paycheck information of Employee(s) vie  a terminal.
 "
  [here live ](https://simple-payroll-system.herokuapp.com/)
 
@@ -22,11 +22,11 @@
 
 
 
-# ![How to Play  Simple Payroll Automation]
-## Section1 :  Get Employees Data and add to the spreadsheet
+# How to Play  Simple Payroll Automation
+## Section1 :  Get Employees Data and add them to the spreadsheet
 
-###  In this section, as USER input the name of employee, the system will automatically update 
-### or add the emplyee(s) to the the spreadsheet( Google spreadsheet), These  field are;
+###  In this section, as USER input the name of employee(s), the system will automatically update 
+### or add the emplyee(s) to the the spreadsheet( Google spreadsheet), The  field are;
 * Employees Id Number
 * Employees Name
 * Employees Age
@@ -36,12 +36,12 @@
 ### There is options for the User to keep on adding the field or not
 * Each of the field had a validation type:
 * ID must be aphanumeric data; either number or alpabet 
-* The name filed is only Alphabet (no space)
-* Age filed is only number( between 18 and 100)
+* The name field is only Alphabet (no space)
+* Age field is only number( between 18 and 100)
 * Department field must be Alphbet
-* Salry filed is  only Number
+* Salary filed is  only number
 
-Any attempt or mistake of putting in the wrong data, will prompt the user and ask the User to reenter
+* Any attempt or mistake of putting in the wrong data, will prompt the user and ask the User to reenter
 before continuing in the next field- as can be shown below, 
 
 ## The input validatation and error Checking
@@ -105,9 +105,13 @@ There is option for User to decide if to continue calcualting the net
 
 * If The User yes, The program for calculating Net Pay will load gain and run
 
+## features in these section:
+* Allow use to reenter filed when wrong data is being enterd
+* Validate Data( Rate and hour worked)
+* The system will automatically print out The PayCheck information of the Worker.
 
 
-# Data Modal and Deign
+# Data Modal and Design
 
 ## Flowchart: That is the first step. This help  to know the direction am going.
 ![Flowchart](doc/flowcharr.PNG)
@@ -120,25 +124,26 @@ There is option for User to decide if to continue calcualting the net
 ### Step1: Create project Name: in this name is Simplepayroll( no space in between)
 
 ![Step1](doc/googlesheet1.PNG)
+<br><br>
 
 
 
 
 ### Step2: create API Libray
 ![Step2](doc/googlesheet2.PNG)
-
+<br><br>
 
 
 ### Step3; here is the API Libary Dashboard, 
 ### Search for Google Drive API and Enable it
 ![Step3](doc/googlesheet3.PNG)
+<br><br>
 
 
-
-### Step4: here create Credential  by clicking CreatCredential button
+### Step4: Google drive is enabled
 ![Step4](doc/googlesheet4.PNG)
 
-
+<br><br>
 
 
 ### Step5: Here create esential Page , select
@@ -149,42 +154,41 @@ There is option for User to decide if to continue calcualting the net
 
 
 ![Step5](doc/googlesheet5.PNG)
-
+<br><br>
 
 
 
 ### Step6: Here create Service Account( Admora is the service account here)  
 ### then click create and continues
 ![Step6](doc/googlesheet6.PNG)
+<br><br>
 
 
 
 
-
-### step7: On the serviceaccount page, 
-### grant editor access to it email
+### step7: On the serviceaccount page  grant editor access to it
 ![Step7](doc/googlesheet7.PNG)
 
-
+<br><br>
 
 
 
 ### step8: Here is serviceaccount  email page and click on the key
 ![Step8](doc/googlesheet8.PNG)
 
-
+<br><br>
 
 
 
 ### step9: Here is Key Page and click ADDKEY, the popup message will comeup and select JSON and create
 ![Step9](doc/googlesheet9.PNG)
+<br><br>
 
 
 
-
-### step10: The access key will download to your computer, ready to be use
+### step10: The access key will download to your computer, ready to  use
 ![Step10](doc/googlesheet10.PNG)
-
+<br><br>
 
 
 
@@ -208,11 +212,11 @@ Then share the Google spreadsheet with service accounts that have been created, 
 ### Solved Bugs
 1. It was not been easy for me, I encounterd so many problems, expeciacially indent issues, 
  while loop issues, validation issues, data not adding to spreadsheet. I have to go back to the drawing borad,
- credit  Sandwiche automation walkthrough Project, i was able to resovled all these problems.
+ credit to Sandwiche automation walkthrough Project, I was able to resolve all these problems.
 
-3. Particular issues i have when i wanted to in net_pay function, was giving me a wrong reuslt, I did not structure the loop while
+3. Particular issues , I have is,  when i wanted to  loop back in net_pay function, I was geting   a wrong reuslt, becuase I did not structure the loop while well.
 
-2. I found out that there ware  Logic errors:  while loop is not producing the expected output. I  Try stepping through my code line by line,  using print statements to debug and identify where the error is occurring.
+2. I found out that there were  Logic errors:  while loop is not producing the expected output. I  Try stepping through my code line by line,  using print statements to debug and identify where the error is occurring.
 
 
 # Remaining Bug
