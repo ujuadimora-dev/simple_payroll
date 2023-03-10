@@ -1,7 +1,11 @@
+"""
+Here is Python Library used in this Project
+"""
 import json
+import sys
 import gspread
 from google.oauth2.service_account import Credentials
-import sys
+
 
 
 # Define the scope of the Google Sheets API access
@@ -32,13 +36,15 @@ print("***Section 2: calculate, overtime, Deductions and Net pay*******")
 print("**print them for each employee for a week(5 working days)*******")
 print("****************************************************************")
 
+GLOBAL_NAME = "name"
+
 
 def employee_data():
     """
     Get the employees details vie the Terminal and add the
     employees data to the google spreadheet
     """
-    global name
+
     print(" Welcome to the Employee Record Update section ")
     print("*************************************************")
     employees = []
@@ -100,7 +106,7 @@ def hour_work_week():
     print("**************************************************")
     print("*************NetPay calculation Section***********")
     print("**************************************************")
-    global name
+    #global name
     name = input("Enter employee name: ")
     while True:
         print(f"Please enter one week worked hours for {name}.")
@@ -121,7 +127,7 @@ def hour_work_week():
     if not isinstance(hourly_rate, float) or hourly_rate < 7.5 or hourly_rate > 18:
         print("Invalid hourly_rate.A valid hourly_rate between 7.5 and 18.")
         hourly_rate = float(input("Re-enter employee hourly_rate: "))
-    net_pay(total_hours, hourly_rate)
+    net_pay(total_hours, hourly_rate, name)
 
 
 def valid_hours(hours_worked):
@@ -142,7 +148,7 @@ def valid_hours(hours_worked):
     return True
 
 
-def net_pay(total_hours, hourly_rate):
+def net_pay(total_hours, hourly_rate, name):
     """
     This function calculates the overtime, regular pay,
     and total net pay of an employee
@@ -195,7 +201,7 @@ def net_pay(total_hours, hourly_rate):
     if response.lower() == "yes":
         hour_work_week()
         total_hours = int(total_hours)
-        net_pay(total_hours, hourly_rate)
+        net_pay(total_hours, hourly_rate, name)
     else:
         empl_response = input("Would you like to Add employees ? (yes/no): ")
     if empl_response.lower() == "yes":
@@ -219,7 +225,7 @@ while True:
         employees = employee_data()
     elif choice == "2":
         hour_work_week()
-        net_pay(total_hours, hourly_rate)
+        net_pay(total_hours, hourly_rate, name)
     elif choice == "3":
         print(" End of the program, see you again")
         break
